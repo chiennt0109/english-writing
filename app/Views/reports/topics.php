@@ -1,0 +1,1 @@
+<h3>Topic Trend Report (PDF-friendly)</h3><p class="text-muted">Use browser print (A4).</p><table class="table table-sm"><tr><th>Topic</th><th>Month</th><th>Error</th><th>Total</th></tr><?php foreach($rows as $r): ?><tr><td><?=e($r['topic'])?></td><td><?=e($r['month'])?></td><td><?=e($r['error_code'])?></td><td><?=e((string)$r['total'])?></td></tr><?php endforeach; ?></table>
