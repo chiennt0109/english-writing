@@ -25,7 +25,7 @@ storage/logs/
 ```
 
 ## Yêu cầu
-- PHP 8.1+
+- PHP 8.0+
 - SQLite3 (mặc định) hoặc MySQL/MariaDB (sửa `.env`)
 
 
@@ -57,7 +57,7 @@ storage/logs/
 4. Mở: `http://localhost:8000/login`
 
 ## Cài đặt (Windows)
-1. Cài PHP 8.1+ và thêm vào PATH.
+1. Cài PHP 8.0+ và thêm vào PATH.
 2. Tạo DB:
    ```bat
    sqlite3 database\app.db < database\schema.sql

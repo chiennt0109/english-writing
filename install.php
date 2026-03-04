@@ -79,7 +79,7 @@ function runSqliteInstall(string $dbPath, string $schema, string $seed): void
 }
 
 $requirements = [
-    'PHP >= 8.1' => version_compare(PHP_VERSION, '8.1.0', '>='),
+    'PHP >= 8.0' => version_compare(PHP_VERSION, '8.0.0', '>='),
     'PDO extension' => extension_loaded('pdo'),
     'PDO SQLite extension' => extension_loaded('pdo_sqlite'),
     'Quyền ghi thư mục dự án' => is_writable($baseDir),
