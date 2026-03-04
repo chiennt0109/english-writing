@@ -1,0 +1,8 @@
+<h3><?= e($submission['title'] ?? '') ?></h3>
+<p><strong>Topic:</strong> <?= e($submission['topic_title'] ?? '') ?> | <strong>Task:</strong> <?= e($submission['task_title'] ?? '') ?></p>
+<div class="card mb-3"><div class="card-body"><h5>Essay</h5><p><?= nl2br(e($submission['content'] ?? '')) ?></p></div></div>
+<div class="row"><div class="col-md-7"><div class="card mb-3"><div class="card-body"><h5>Auto feedback</h5>
+<?php $ann = json_decode($feedback['annotations_json'] ?? '[]', true) ?: []; foreach($ann as $a): ?><div class="error mb-1"><?= e($a['type']) ?> - <?= e($a['message']) ?> <em>(<?= e($a['suggestion'] ?? '') ?>)</em></div><?php endforeach; ?></div></div></div>
+<div class="col-md-5"><div class="card mb-3"><div class="card-body"><h5>4 Cambridge Criteria (suggested)</h5><?php $sum=json_decode($feedback['summary_json'] ?? '{}', true) ?: []; foreach(['task','coh','lex','gra'] as $k): ?><p><?= strtoupper($k) ?>: <strong><?= e((string)($sum[$k]['score_suggested'] ?? '-')) ?></strong><br><small><?= e($sum[$k]['rationale'] ?? '') ?></small></p><?php endforeach; ?></div></div></div></div>
+<?php if ($review): ?><div class="alert alert-info">Teacher overall: <?= e((string)$review['overall']) ?> | <?= e($review['comments']) ?></div><?php endif; ?>
+<div class="card"><div class="card-body"><h5>Rewrite Mode</h5><form method="post" action="/submission/<?= $submission['id'] ?>/revision"><input type="hidden" name="_csrf" value="<?= csrf_token() ?>"><textarea name="content" rows="8" class="form-control mb-2"><?= e($submission['content']) ?></textarea><button class="btn btn-warning">Submit revision</button></form></div></div>
