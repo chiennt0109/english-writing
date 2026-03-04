@@ -38,7 +38,7 @@ storage/logs/
    - tạo DB SQLite
    - import `database/schema.sql` + `database/seed.sql`
    - tạo file khóa `storage/.installed`
-5. Đăng nhập tại `/login` bằng tài khoản demo.
+5. Đăng nhập tại `/public/login` (hoặc `/login` nếu DocumentRoot đã trỏ vào thư mục `public`) bằng tài khoản demo.
 
 > Lưu ý: Bản one-click hiện tối ưu cho **SQLite** (phù hợp đa số shared host). Nếu bạn bắt buộc dùng MySQL, hãy cấu hình `.env` thủ công và import SQL bằng phpMyAdmin/CLI.
 

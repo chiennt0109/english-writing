@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !file_exists($installLock)) {
         }
         file_put_contents($installLock, 'installed_at=' . date('c') . PHP_EOL);
 
-        $successMessage = 'Cài đặt thành công! Bạn có thể đăng nhập tại /login với tài khoản mẫu: admin@example.com/admin123, teacher@example.com/teacher123, student@example.com/student123';
+        $successMessage = 'Cài đặt thành công! Bạn có thể đăng nhập tại /public/login (hoặc /login nếu DocumentRoot trỏ vào thư mục public) với tài khoản mẫu: admin@example.com/admin123, teacher@example.com/teacher123, student@example.com/student123';
     } catch (Throwable $e) {
         $errors[] = $e->getMessage();
     }
