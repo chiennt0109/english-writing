@@ -1,0 +1,1 @@
+<h3>Admin - Users</h3><table class="table"><tr><th>Name</th><th>Email</th><th>Role</th><th>Created</th></tr><?php foreach($users as $u): ?><tr><td><?=e($u['name'])?></td><td><?=e($u['email'])?></td><td><?=e($u['role'])?></td><td><?=e($u['created_at'])?></td></tr><?php endforeach; ?></table>
