@@ -1,3 +1,5 @@
 .env
 database/app.db
 storage/logs/*.log
+
+storage/.installed

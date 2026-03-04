@@ -28,6 +28,20 @@ storage/logs/
 - PHP 8.1+
 - SQLite3 (mặc định) hoặc MySQL/MariaDB (sửa `.env`)
 
+
+## Cài đặt siêu nhanh trên host (1 file)
+1. Upload toàn bộ source code lên host.
+2. Mở trình duyệt tới: `https://your-domain.com/install.php`
+3. Kiểm tra các điều kiện môi trường (PHP/PDO/SQLite/quyền ghi).
+4. Bấm **Cài đặt ngay** để installer tự: 
+   - tạo `.env`
+   - tạo DB SQLite
+   - import `database/schema.sql` + `database/seed.sql`
+   - tạo file khóa `storage/.installed`
+5. Đăng nhập tại `/login` bằng tài khoản demo.
+
+> Lưu ý: Bản one-click hiện tối ưu cho **SQLite** (phù hợp đa số shared host). Nếu bạn bắt buộc dùng MySQL, hãy cấu hình `.env` thủ công và import SQL bằng phpMyAdmin/CLI.
+
 ## Cài đặt (Linux/macOS)
 1. Clone repo và vào thư mục project.
 2. Tạo DB SQLite:
