@@ -78,3 +78,22 @@ storage/logs/
 ## Ghi chú
 - Nếu dùng MySQL: cập nhật `.env` với `DB_DRIVER=mysql` và thông số DB.
 - Logging lỗi tại `storage/logs/app.log`.
+
+
+## Khắc phục lỗi Apache "Not Found" với URL `/english-writing/public/`
+Nếu bạn dùng XAMPP/WAMP và gặp lỗi:
+
+`Not Found - The requested URL was not found on this server.`
+
+Hãy kiểm tra: 
+1. Source code nằm đúng tại `htdocs/english-writing` (hoặc thư mục webroot tương đương).
+2. Apache đã bật `mod_rewrite`.
+3. Cho phép `.htaccess` hoạt động (`AllowOverride All` cho thư mục webroot).
+4. Repo đã có sẵn:
+   - `.htaccess` ở root (redirect `/english-writing/` -> `/english-writing/public/`)
+   - `public/.htaccess` (front-controller rewrite về `public/index.php`)
+
+Sau đó restart Apache và thử lại:
+- `http://localhost/english-writing/public/`
+- hoặc `http://localhost/english-writing/` (sẽ tự chuyển sang `/public/`).
+

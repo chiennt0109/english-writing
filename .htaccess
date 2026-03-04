@@ -1,0 +1,13 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Allow direct access to existing files/folders
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # If project is served from /english-writing/, redirect to /public/.
+  RewriteRule ^$ public/ [R=302,L]
+</IfModule>
