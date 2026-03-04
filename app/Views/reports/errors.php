@@ -1,0 +1,1 @@
+<h3>Error Report</h3><a href="/reports/errors?export=csv" class="btn btn-sm btn-outline-success mb-2">Export CSV</a><table class="table"><tr><th>Error code</th><th>Total</th></tr><?php foreach($rows as $r): ?><tr><td><?=e($r['error_code'])?></td><td><?=e((string)$r['total'])?></td></tr><?php endforeach; ?></table>
