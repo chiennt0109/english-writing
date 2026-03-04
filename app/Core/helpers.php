@@ -7,9 +7,23 @@ function e(string $value): string
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
+function base_path(): string
+{
+    $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
+    $dir = rtrim(dirname($scriptName), '/');
+    return $dir === '/' ? '' : $dir;
+}
+
+function url(string $path = ''): string
+{
+    $base = base_path();
+    $path = '/' . ltrim($path, '/');
+    return ($base === '' ? '' : $base) . ($path === '/' ? '' : $path);
+}
+
 function redirect(string $path): void
 {
-    header('Location: ' . $path);
+    header('Location: ' . url($path));
     exit;
 }
 

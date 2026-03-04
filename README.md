@@ -42,6 +42,8 @@ storage/logs/
 
 > Lưu ý: Bản one-click hiện tối ưu cho **SQLite** (phù hợp đa số shared host). Nếu bạn bắt buộc dùng MySQL, hãy cấu hình `.env` thủ công và import SQL bằng phpMyAdmin/CLI.
 
+> Nếu bạn truy cập dạng `http://localhost/english-writing/public/` (Apache/XAMPP), app đã hỗ trợ subdirectory base path; mọi link/redirect sẽ tự động theo đúng prefix.
+
 ## Cài đặt (Linux/macOS)
 1. Clone repo và vào thư mục project.
 2. Tạo DB SQLite:

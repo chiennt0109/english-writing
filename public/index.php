@@ -50,4 +50,13 @@ $router->get('/admin/tasks', [AdminController::class, 'tasks']);
 $router->get('/reports/errors', [ReportController::class, 'errors']);
 $router->get('/reports/topics', [ReportController::class, 'topics']);
 
-$router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$pathOnly = parse_url($requestUri, PHP_URL_PATH) ?: '/';
+$basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+if ($basePath !== '' && $basePath !== '/' && str_starts_with($pathOnly, $basePath)) {
+    $pathOnly = substr($pathOnly, strlen($basePath)) ?: '/';
+}
+$query = parse_url($requestUri, PHP_URL_QUERY);
+$normalizedUri = $pathOnly . ($query ? ('?' . $query) : '');
+
+$router->dispatch($_SERVER['REQUEST_METHOD'], $normalizedUri);
